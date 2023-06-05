@@ -39,12 +39,12 @@ public class GameManager : MonoBehaviour
 
     private void UpdateTimerText()
     {
-        //if (timer > 10f)
-        //{
-        //    timerText.text = "10.0s";
-        //    return;
-        //}
-        if (timer <= 10f)
+        if (timer > 10f)
+        {
+            timerText.text = "10.0s";
+            return;
+        }
+        else if (timer <= 10f)
         {
             timerText.text = timer.ToString("F2") + "s";
         }
