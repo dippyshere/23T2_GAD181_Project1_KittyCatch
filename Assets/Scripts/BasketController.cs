@@ -35,7 +35,7 @@ public class BasketController : MonoBehaviour
         mousePosition.z = initialZPosition;
 
         // Interpolate the basket's position towards the mouse position
-        transform.position = Vector3.Lerp(transform.position, mousePosition, 0.03f);
+        transform.position = Vector3.Lerp(transform.position, mousePosition, 0.1f);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
