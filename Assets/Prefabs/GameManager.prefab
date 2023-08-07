@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7518672672470304789}
   - component: {fileID: 9099897163107537030}
   - component: {fileID: 6731715941198957125}
+  - component: {fileID: 8180740237697919958}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -64,6 +65,9 @@ MonoBehaviour:
   timerText: {fileID: 0}
   gameOverPanel: {fileID: 0}
   outOfTimePanel: {fileID: 0}
+  quitButton: {fileID: 0}
+  replayButton: {fileID: 0}
+  retryButton: {fileID: 0}
   basketController: {fileID: 0}
 --- !u!114 &6731715941198957125
 MonoBehaviour:
@@ -78,3 +82,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 0}
+--- !u!114 &8180740237697919958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6027233159695459141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d8fa914472ce64418e23bd6b85d7153, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
