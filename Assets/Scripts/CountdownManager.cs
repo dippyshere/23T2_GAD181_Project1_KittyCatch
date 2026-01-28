@@ -20,36 +20,39 @@ public class CountdownManager : MonoBehaviour
 
     private void Update()
     {
-        if (isCountingDown)
+        if (!isCountingDown)
         {
-            countdownTimer -= Time.unscaledDeltaTime;
-
-            if (countdownTimer <= 0f)
-            {
-                countdownTimer = 0f;
-                isCountingDown = false;
-                Time.timeScale = 1f;
-            }
-
-            UpdateCountdownText();
+            return;
         }
+
+        countdownTimer -= Time.unscaledDeltaTime;
+
+        if (countdownTimer <= 0f)
+        {
+            countdownTimer = 0f;
+            isCountingDown = false;
+            Time.timeScale = 1f;
+        }
+
+        UpdateCountdownText();
     }
 
     private void UpdateCountdownText()
     {
         int seconds = Mathf.CeilToInt(countdownTimer);
-        if (seconds > 3)
+        switch (seconds)
         {
-            countdownText.text = "Get Ready";
-            return;
+            case > 3:
+                countdownText.text = "Get Ready";
+                return;
+            case 0:
+                countdownText.text = "GO!";
+                Destroy(this, 1f);
+                return;
+            default:
+                countdownText.text = seconds.ToString();
+                break;
         }
-        if (seconds == 0)
-        {
-            countdownText.text = "GO!";
-            Destroy(this, 1f);
-            return;
-        }
-        countdownText.text = seconds.ToString();
     }
 
     private void OnDestroy()

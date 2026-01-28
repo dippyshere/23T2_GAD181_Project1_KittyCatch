@@ -13,27 +13,43 @@ public class GameManager : MonoBehaviour
     public GameObject replayButton;
     public GameObject retryButton;
     public BasketController basketController;
+    public CountdownManager countdownManager;
+    public GameObject confettiPrefab;
+    public GameObject explosionPrefab;
+    public GameObject deathPrefab;
+    public bool isInfiniteGame;
 
     private float timer;
-    private bool isGameOver;
+    public bool isGameOver;
 
     private void Start()
     {
         timer = gameTime;
         isGameOver = false;
+        Invoke(nameof(SetInitialTimer), 0.1f);
+    }
+
+    private void SetInitialTimer()
+    {
+        timer = isInfiniteGame ? 0f : gameTime;
     }
 
     private void FixedUpdate()
     {
-        if (!isGameOver)
+        if (isGameOver)
         {
-            timer -= Time.deltaTime;
-            UpdateTimerText();
+            return;
+        }
 
-            if (timer <= 0f)
-            {
-                OutOfTime();
-            }
+        if (isInfiniteGame)
+            timer += Time.deltaTime;
+        else
+            timer -= Time.deltaTime;
+        UpdateTimerText();
+
+        if (!isInfiniteGame && timer <= 0f)
+        {
+            OutOfTime();
         }
     }
 
@@ -63,6 +79,14 @@ public class GameManager : MonoBehaviour
         retryButton.SetActive(true);
         basketController.isMoving = false;
         Time.timeScale = 0f;
+        countdownManager.countdownText.gameObject.SetActive(false);
+        Instantiate(deathPrefab, basketController.transform.position + new Vector3(0f, -1.85f, 0f), Quaternion.Euler(-90f, 0f, 0f));
+        if (isInfiniteGame)
+        {
+            Instantiate(confettiPrefab, transform);
+        }
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void OutOfTime()
@@ -72,7 +96,11 @@ public class GameManager : MonoBehaviour
         quitButton.SetActive(true);
         replayButton.SetActive(true);
         basketController.isMoving = false;
+        countdownManager.countdownText.gameObject.SetActive(false);
         Time.timeScale = 0f;
+        Instantiate(confettiPrefab, transform);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }
 

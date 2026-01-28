@@ -8,6 +8,7 @@ public class ItemController : MonoBehaviour
     public GameObject badItemPrefab;
     public Transform spawnPoint;
     public float spawnInterval = 1f;
+    public bool newGamePlus;
 
     private float timer;
 
@@ -32,6 +33,11 @@ public class ItemController : MonoBehaviour
 
             // Reset the timer for the next spawn
             timer = spawnInterval;
+        }
+
+        if (newGamePlus)
+        {
+            spawnInterval = Mathf.Max(0.18f, spawnInterval - Time.deltaTime * 0.0086f);
         }
     }
 }

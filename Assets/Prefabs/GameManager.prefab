@@ -27,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6027233159695459141}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.28020757, y: -0.2875257, z: -0.06928764}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7518672672470304789
 MonoBehaviour:
@@ -69,6 +69,12 @@ MonoBehaviour:
   replayButton: {fileID: 0}
   retryButton: {fileID: 0}
   basketController: {fileID: 0}
+  countdownManager: {fileID: 7518672672470304789}
+  confettiPrefab: {fileID: 5700784828077083704, guid: ed962e35f7fa6f34f8d27aa6d19ea293, type: 3}
+  explosionPrefab: {fileID: 2433282508537954060, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312, type: 3}
+  deathPrefab: {fileID: 5642766282230003982, guid: b5c8ca7ed10b61e499cce8ec3b6e2e4c, type: 3}
+  isInfiniteGame: 0
+  isGameOver: 0
 --- !u!114 &6731715941198957125
 MonoBehaviour:
   m_ObjectHideFlags: 0
