@@ -14,5 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NewGamePlusLevel.unity
     guid: ce760d3217d9a2143a6c9196b3747304
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: e1a11c3d4b197704788daabe36d8e2db, type: 2}
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 60178483029ad5d4887981f2a8c2632f, type: 3}
   m_UseUCBPForAssetBundles: 0

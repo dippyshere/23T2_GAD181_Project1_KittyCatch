@@ -16,31 +16,32 @@ public class BasketController : MonoBehaviour
     private float initialYPosition;
     private float initialZPosition;
     private Camera mainCamera;
+    InputAction moveAction;
 
     private void Start()
     {
         initialYPosition = transform.position.y;
         initialZPosition = transform.position.z;
         mainCamera = Camera.main;
+        moveAction = InputSystem.actions.FindAction("Move");
     }
 
-    private void Update()
+    public void Update()
     {
-        if (isMoving)
+        MoveBasket();
+    }
+
+    void MoveBasket()
+    {
+        if (!isMoving)
         {
-            MoveBasket();
+            return;
         }
-    }
 
-    private void MoveBasket()
-    {
-        // Get the current mouse position
-        Vector3 mousePosition = mainCamera.ScreenToWorldPoint(new Vector3(Mathf.Clamp(Mouse.current.position.value.x, 0f, Screen.width), 0f, 0f));
-        mousePosition.y = initialYPosition;
-        mousePosition.z = initialZPosition;
-
-        // Interpolate the basket's position towards the mouse position
-        transform.position = Vector3.Lerp(transform.position, mousePosition, 0.065f);
+        Vector3 touchPosition = mainCamera.ScreenToWorldPoint(new Vector3(Mathf.Clamp(moveAction.ReadValue<Vector2>().x, 0f, Screen.width), 0, 0));
+        touchPosition.y = -3.5f;
+        touchPosition.z = 0;
+        transform.position = Vector3.Lerp(transform.position, touchPosition, 0.065f);;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
