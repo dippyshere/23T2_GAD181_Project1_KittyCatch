@@ -29,7 +29,7 @@ public class ItemController : MonoBehaviour
             spawnPoint.position = new Vector3(Random.Range(-4f, 4f), spawnPoint.position.y, spawnPoint.position.z);
 
             // Instantiate the item at the spawn point
-            GameObject item = Instantiate(itemPrefab, spawnPoint.position, Quaternion.identity);
+            InstantiateAsync(itemPrefab, spawnPoint.position, Quaternion.identity);
 
             // Reset the timer for the next spawn
             timer = spawnInterval;
@@ -37,7 +37,7 @@ public class ItemController : MonoBehaviour
 
         if (newGamePlus)
         {
-            spawnInterval = Mathf.Max(0.18f, spawnInterval - Time.deltaTime * 0.0086f);
+            spawnInterval = Mathf.Max(0.17f, spawnInterval - Time.deltaTime * 0.0086f);
         }
     }
 }

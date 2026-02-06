@@ -19,22 +19,25 @@ public class GameManager : MonoBehaviour
     public GameObject deathPrefab;
     public bool isInfiniteGame;
 
-    private float timer;
+    float timer;
     public bool isGameOver;
+    public AudioClip timeUpSound;
+    public AudioSource audioSource;
 
-    private void Start()
+    void Start()
     {
         timer = gameTime;
         isGameOver = false;
         Invoke(nameof(SetInitialTimer), 0.1f);
+        Invoke(nameof(SetInitialTimer), 0.5f);
     }
 
-    private void SetInitialTimer()
+    void SetInitialTimer()
     {
         timer = isInfiniteGame ? 0f : gameTime;
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         if (isGameOver)
         {
@@ -53,7 +56,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void UpdateTimerText()
+    void UpdateTimerText()
     {
         //if (timer > 10f)
         //{
@@ -80,16 +83,16 @@ public class GameManager : MonoBehaviour
         basketController.isMoving = false;
         Time.timeScale = 0f;
         countdownManager.countdownText.gameObject.SetActive(false);
-        Instantiate(deathPrefab, basketController.transform.position + new Vector3(0f, -1.85f, 0f), Quaternion.Euler(-90f, 0f, 0f));
-        if (isInfiniteGame)
-        {
-            Instantiate(confettiPrefab, transform);
-        }
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        if (isInfiniteGame)
+        {
+            InstantiateAsync(confettiPrefab, transform);
+        }
+        InstantiateAsync(deathPrefab, basketController.transform.position + new Vector3(0f, -1.85f, 0f), Quaternion.Euler(-90f, 0f, 0f));
     }
 
-    public void OutOfTime()
+    void OutOfTime()
     {
         isGameOver = true;
         outOfTimePanel.SetActive(true);
@@ -98,9 +101,10 @@ public class GameManager : MonoBehaviour
         basketController.isMoving = false;
         countdownManager.countdownText.gameObject.SetActive(false);
         Time.timeScale = 0f;
-        Instantiate(confettiPrefab, transform);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        audioSource.PlayOneShot(timeUpSound);
+        InstantiateAsync(confettiPrefab, transform);
     }
 }
 

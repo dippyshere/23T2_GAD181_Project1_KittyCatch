@@ -20,7 +20,7 @@ public class ItemBehaviour : MonoBehaviour
         GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-5f, 5f), 0f), ForceMode2D.Impulse);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         // Move the item downwards
         // transform.Translate(fallSpeed * Time.deltaTime * Vector3.down);

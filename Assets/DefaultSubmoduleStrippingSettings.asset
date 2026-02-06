@@ -33,7 +33,6 @@ MonoBehaviour:
   - System.Security
   - TetGen
   - Texture Decompression ASTC
-  - Texture Decompression BC
   - Texture Decompression ETC
   - UI Toolkit Base Fields
   - UI Toolkit BaseVerticalCollectionView

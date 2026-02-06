@@ -45,7 +45,9 @@ Shader "Universal Render Pipeline/2D/Sprite-Lit-Default"
 					IN.vertex.xy *= _Flip;
                 #endif
 
-                OUT.vertex = UnityObjectToClipPos(IN.vertex + _ShadowOffset);
+                float4 worldPos = mul(unity_ObjectToWorld, IN.vertex);
+                worldPos.xyz += _ShadowOffset.xyz;
+                OUT.vertex = UnityWorldToClipPos(worldPos);
                 OUT.texcoord = IN.texcoord;
                 OUT.color = IN.color * _Color * _RendererColor;
 

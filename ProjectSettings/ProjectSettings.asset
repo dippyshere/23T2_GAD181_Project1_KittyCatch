@@ -828,7 +828,7 @@ PlayerSettings:
   webGLDebugSymbols: 1
   webGLEmscriptenArgs: 
   webGLModulesDirectory: 
-  webGLTemplate: PROJECT:Modern
+  webGLTemplate: PROJECT:ModernMultiTex
   webGLAnalyzeBuildSize: 0
   webGLUseEmbeddedResources: 0
   webGLCompressionFormat: 0

@@ -10,6 +10,8 @@ public class BasketController : MonoBehaviour
     public GameManager gameManager;
     public GameObject collectPrefab;
     public Transform smokeSpawn;
+    public PlayRandomSound collectSound;
+    public PlayRandomSound gameOverSound;
 
     public bool isMoving = true;
 
@@ -17,6 +19,10 @@ public class BasketController : MonoBehaviour
     private float initialZPosition;
     private Camera mainCamera;
     InputAction moveAction;
+    InputAction controlAction;
+    Vector2 lastMousePosition;
+    Vector2 lastControlPosition;
+    bool isControlling;
 
     private void Start()
     {
@@ -24,6 +30,7 @@ public class BasketController : MonoBehaviour
         initialZPosition = transform.position.z;
         mainCamera = Camera.main;
         moveAction = InputSystem.actions.FindAction("Move");
+        controlAction = InputSystem.actions.FindAction("Control");
     }
 
     public void Update()
@@ -38,9 +45,38 @@ public class BasketController : MonoBehaviour
             return;
         }
 
-        Vector3 touchPosition = mainCamera.ScreenToWorldPoint(new Vector3(Mathf.Clamp(moveAction.ReadValue<Vector2>().x, 0f, Screen.width), 0, 0));
+        Vector2 currentMousePosition = moveAction.ReadValue<Vector2>();
+        Vector2 currentControlPosition = controlAction.ReadValue<Vector2>();
+        Vector2 touchPosition = transform.position;
+
+        if (isControlling)
+        {
+            if (currentMousePosition != lastMousePosition)
+            {
+                isControlling = false;
+            }
+        }
+        else
+        {
+            if (currentControlPosition != lastControlPosition)
+            {
+                isControlling = true;
+            }
+        }
+        lastMousePosition = currentMousePosition;
+        lastControlPosition = currentControlPosition;
+
+        if (isControlling)
+        {
+            float screenX = (currentControlPosition.x + 1f) / 2f * Screen.width;
+            touchPosition = mainCamera.ScreenToWorldPoint(new Vector3(Mathf.Clamp(screenX, 0f, Screen.width), 0, 0));
+        }
+        else
+        {
+            touchPosition = mainCamera.ScreenToWorldPoint(new Vector3(Mathf.Clamp(moveAction.ReadValue<Vector2>().x, 0f, Screen.width), 0, 0));
+        }
+
         touchPosition.y = -3.5f;
-        touchPosition.z = 0;
         transform.position = Vector3.Lerp(transform.position, touchPosition, 0.065f);;
     }
 
@@ -53,7 +89,14 @@ public class BasketController : MonoBehaviour
             // based on collecting a good item
             //Debug.Log("Good item collected!");
             scoreManager.IncreaseScore(1);
-            Instantiate(collectPrefab, smokeSpawn);
+            collectSound.PlayRandomAudioClip();
+            // instantiate the smoke prefab asynchronously parented to the smoke spawn point and set the local transform to zero after instantiating
+            AsyncInstantiateOperation<GameObject> operation = InstantiateAsync(collectPrefab, smokeSpawn.position, Quaternion.identity);
+            operation.completed += (result) =>
+            {
+                operation.Result[0].transform.SetParent(smokeSpawn);
+                operation.Result[0].transform.localPosition = Vector3.zero;
+            };
         }
         // Check if a bad item has entered the basket
         else if (other.CompareTag("BadItem"))
@@ -62,7 +105,8 @@ public class BasketController : MonoBehaviour
             // based on collecting a bad item
             //Debug.Log("Bad item collected!");
             gameManager.GameOver();
-            Instantiate(gameManager.explosionPrefab, other.transform.position, Quaternion.identity);
+            gameOverSound.PlayRandomAudioClip();
+            InstantiateAsync(gameManager.explosionPrefab, other.transform.position, Quaternion.identity);
         }
 
         // Destroy the item regardless of its type

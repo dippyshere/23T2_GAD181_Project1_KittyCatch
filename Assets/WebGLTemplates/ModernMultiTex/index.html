@@ -86,12 +86,19 @@
       function confirmUnload(event) {
         return confirm("All unsaved progress will be lost.");
       }
-      
+
+      var dataFile = "/{{{ DATA_FILENAME }}}";
+      var c = document.createElement("canvas");
+      var gl2 = c.getContext("webgl2");
+      if (gl2 && gl2.getExtension('WEBGL_compressed_texture_astc')) {
+        dataFile = "/WebGL_ASTC.data.br";
+      }
+
       var buildUrl = "Build";
       var loaderUrl = buildUrl + "/{{{ LOADER_FILENAME }}}";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/{{{ DATA_FILENAME }}}",
+        dataUrl: buildUrl + dataFile,
         frameworkUrl: buildUrl + "/{{{ FRAMEWORK_FILENAME }}}",
 #if USE_THREADS
         workerUrl: buildUrl + "/{{{ WORKER_FILENAME }}}",
@@ -109,9 +116,9 @@
         showBanner: unityShowBanner,
       };
 
-      //config.matchWebGLToCanvasSize = false;
+      // config.matchWebGLToCanvasSize = false;
       // config.autoSyncPersistentDataPath = true;
-      
+
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         // Mobile device style: fill the whole browser client area with the game canvas
         var meta = document.createElement('meta');
