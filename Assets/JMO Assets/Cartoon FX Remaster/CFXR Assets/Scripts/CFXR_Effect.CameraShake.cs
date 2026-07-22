@@ -160,8 +160,6 @@ namespace CartoonFX
 				{
 					camerasPreRenderPosition[cam] = cam.transform.localPosition;
 
-					if (Time.timeScale <= 0) return;
-
 					switch (shakeSpace)
 					{
 						case ShakeSpace.Screen: cam.transform.localPosition += cam.transform.rotation * shakeVector; break;
@@ -259,7 +257,7 @@ namespace CartoonFX
 					// delay between each camera move
 					if (shakesDelay > 0)
 					{
-						delaysTimer += Time.deltaTime;
+						delaysTimer += Time.unscaledDeltaTime;
 						if (delaysTimer < shakesDelay)
 						{
 							return;
@@ -275,7 +273,7 @@ namespace CartoonFX
 
 					var randomVec = new Vector3(Random.value, Random.value, Random.value);
 					var shakeVec = Vector3.Scale(randomVec, shakeStrength) * (Random.value > 0.5f ? -1 : 1);
-					shakeVector = shakeVec * shakeCurve.Evaluate(delta) * GLOBAL_CAMERA_SHAKE_MULTIPLIER;
+					shakeVector = shakeVec * (shakeCurve.Evaluate(delta) * GLOBAL_CAMERA_SHAKE_MULTIPLIER);
 				}
 				else if (isShaking)
 				{

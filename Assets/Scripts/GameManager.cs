@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public float gameTime = 10.2f;
+    public float gameTime = 10f;
     public TextMeshProUGUI timerText;
     public GameObject gameOverPanel;
     public GameObject outOfTimePanel;
@@ -24,16 +24,13 @@ public class GameManager : MonoBehaviour
     public AudioClip timeUpSound;
     public AudioSource audioSource;
 
-    void Start()
+    IEnumerator Start()
     {
-        timer = gameTime;
+        timer = isInfiniteGame ? 0f : gameTime;
         isGameOver = false;
-        Invoke(nameof(SetInitialTimer), 0.1f);
-        Invoke(nameof(SetInitialTimer), 0.5f);
-    }
-
-    void SetInitialTimer()
-    {
+        yield return null;
+        timer = isInfiniteGame ? 0f : gameTime;
+        yield return new WaitForSecondsRealtime(0.1f);
         timer = isInfiniteGame ? 0f : gameTime;
     }
 
@@ -48,11 +45,15 @@ public class GameManager : MonoBehaviour
             timer += Time.deltaTime;
         else
             timer -= Time.deltaTime;
-        UpdateTimerText();
 
         if (!isInfiniteGame && timer <= 0f)
         {
             OutOfTime();
+        }
+
+        if (Time.timeScale != 0)
+        {
+            UpdateTimerText();
         }
     }
 
@@ -76,6 +77,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        UpdateTimerText();
         isGameOver = true;
         gameOverPanel.SetActive(true);
         quitButton.SetActive(true);
@@ -94,6 +96,7 @@ public class GameManager : MonoBehaviour
 
     void OutOfTime()
     {
+        UpdateTimerText();
         isGameOver = true;
         outOfTimePanel.SetActive(true);
         quitButton.SetActive(true);

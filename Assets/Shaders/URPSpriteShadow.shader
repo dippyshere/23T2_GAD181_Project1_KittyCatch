@@ -105,7 +105,7 @@ Shader "Universal Render Pipeline/2D/Sprite-Lit-Default"
             Varyings UnlitVertex(Attributes input)
             {
                 SetUpSpriteInstanceProperties();
-                input.positionOS = UnityFlipSprite(input.positionOS, unity_SpriteProps.xy);
+                input.positionOS = UnityFlipSprite(input.positionOS, UnityGetSpriteFlip());
 
                 Varyings o = CommonUnlitVertex(input);
                 o.color = input.color *_Color * unity_SpriteColor;

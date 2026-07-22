@@ -1,10 +1,14 @@
 //--------------------------------------------------------------------------------------------------------------------------------
+// Upgrade NOTE: excluded shader from OpenGL ES 2.0 because it uses non-square matrices
+#pragma exclude_renderers gles
 // Cartoon FX
 // (c) 2012-2025 Jean Moreno
 //--------------------------------------------------------------------------------------------------------------------------------
 
-#if defined(UNITY_PARTICLE_INSTANCING_ENABLED)
-	#pragma exclude_renderers gles
+#if defined(UNITY_PARTICLE_INSTANCING_ENABLED) && (defined(SHADER_API_GLES) || defined(SHADER_API_GLES3))
+	// GLES/WebGL does not support the particle instancing buffer path reliably here.
+	// Fall back to the regular particle vertex stream instead of stripping the shader.
+	#undef UNITY_PARTICLE_INSTANCING_ENABLED
 #endif
 
 #if defined(GLOBAL_DISABLE_SOFT_PARTICLES) && !defined(DISABLE_SOFT_PARTICLES)

@@ -1,0 +1,343 @@
+{
+    "m_Name": "",
+    "serializedVersion": "2",
+    "m_Version": 0,
+    "m_DeviceRenderer": 2,
+    "m_RuntimePlatform": 2,
+    "m_QualityLevelName": "Ultra",
+    "m_VariantInfoMap": [
+        {
+            "first": {
+                "serializedVersion": "2",
+                "Hash": "01d40bcffd0fdbdcd49e8c7bc4fdd6eb"
+            },
+            "second": {
+                "shaderName": "Universal Render Pipeline/2D/Sprite-Lit-Default",
+                "shaderAssetGUID": "99d21855bafc2724b9c6eb9214b173ce",
+                "shaderAssetLocalIdentifierInFile": 4800000,
+                "keywordNames": "INSTANCING_ON",
+                "subShaderIndex": 0,
+                "passIndex": 0,
+                "graphicsStateInfoSet": []
+            }
+        },
+        {
+            "first": {
+                "serializedVersion": "2",
+                "Hash": "1220569f88f3c0c299175d4c2c3f16bf"
+            },
+            "second": {
+                "shaderName": "Shader Graphs/SpriteUnlitShadow",
+                "shaderAssetGUID": "745219074f4bd2e4f9a15304872a9a89",
+                "shaderAssetLocalIdentifierInFile": 0,
+                "keywordNames": "",
+                "subShaderIndex": 0,
+                "passIndex": 1,
+                "graphicsStateInfoSet": []
+            }
+        },
+        {
+            "first": {
+                "serializedVersion": "2",
+                "Hash": "20583cd0b89657ff9f4f2d32579769c0"
+            },
+            "second": {
+                "shaderName": "Cartoon FX/Remaster/Particle Ubershader",
+                "shaderAssetGUID": "1a29b4d27eb8b04479ef89c00dea533d",
+                "shaderAssetLocalIdentifierInFile": 0,
+                "keywordNames": "_ALPHABLEND_ON",
+                "subShaderIndex": 0,
+                "passIndex": 0,
+                "graphicsStateInfoSet": []
+            }
+        },
+        {
+            "first": {
+                "serializedVersion": "2",
+                "Hash": "7720de7bef1a2f7379b712a2825d6a06"
+            },
+            "second": {
+                "shaderName": "Hidden/Internal-GUITexture",
+                "shaderAssetGUID": "0860a397848c35f488bf42d3c36a3330",
+                "shaderAssetLocalIdentifierInFile": 4800000,
+                "keywordNames": "",
+                "subShaderIndex": 0,
+                "passIndex": 0,
+                "graphicsStateInfoSet": []
+            }
+        },
+        {
+            "first": {
+                "serializedVersion": "2",
+                "Hash": "eab87c29f377b2a2f724737eadff5828"
+            },
+            "second": {
+                "shaderName": "Hidden/Universal Render Pipeline/Bloom",
+                "shaderAssetGUID": "5f1864addb451f54bae8c86d230f736e",
+                "shaderAssetLocalIdentifierInFile": 4800000,
+                "keywordNames": "",
+                "subShaderIndex": 0,
+                "passIndex": 1,
+                "graphicsStateInfoSet": []
+            }
+        },
+        {
+            "first": {
+                "serializedVersion": "2",
+                "Hash": "f1d4ad93e2a625cda780dba28bbfbaf1"
+            },
+            "second": {
+                "shaderName": "Hidden/Universal Render Pipeline/LutBuilderLdr",
+                "shaderAssetGUID": "65df88701913c224d95fc554db28381a",
+                "shaderAssetLocalIdentifierInFile": 4800000,
+                "keywordNames": "",
+                "subShaderIndex": 0,
+                "passIndex": 0,
+                "graphicsStateInfoSet": []
+            }
+        },
+        {
+            "first": {
+                "serializedVersion": "2",
+                "Hash": "43fd37568bc729370775f79230354eec"
+            },
+            "second": {
+                "shaderName": "Cartoon FX/Remaster/Particle Ubershader",
+                "shaderAssetGUID": "1a29b4d27eb8b04479ef89c00dea533d",
+                "shaderAssetLocalIdentifierInFile": 0,
+                "keywordNames": "_CFXR_ADDITIVE",
+                "subShaderIndex": 0,
+                "passIndex": 0,
+                "graphicsStateInfoSet": []
+            }
+        },
+        {
+            "first": {
+                "serializedVersion": "2",
+                "Hash": "6689ec1960dc67032abad8ce85af55ae"
+            },
+            "second": {
+                "shaderName": "Cartoon FX/Remaster/Particle Ubershader",
+                "shaderAssetGUID": "1a29b4d27eb8b04479ef89c00dea533d",
+                "shaderAssetLocalIdentifierInFile": 0,
+                "keywordNames": "_ALPHABLEND_ON _CFXR_DISSOLVE",
+                "subShaderIndex": 0,
+                "passIndex": 0,
+                "graphicsStateInfoSet": []
+            }
+        },
+        {
+            "first": {
+                "serializedVersion": "2",
+                "Hash": "e91561ce158a9588e4493878cb09e7e1"
+            },
+            "second": {
+                "shaderName": "Hidden/BlitCopy",
+                "shaderAssetGUID": "7f98de55a7e99dc4ab9469edbd3040bc",
+                "shaderAssetLocalIdentifierInFile": 4800000,
+                "keywordNames": "",
+                "subShaderIndex": 0,
+                "passIndex": 0,
+                "graphicsStateInfoSet": []
+            }
+        },
+        {
+            "first": {
+                "serializedVersion": "2",
+                "Hash": "e45d300642af85d161b38c179868e2e4"
+            },
+            "second": {
+                "shaderName": "Cartoon FX/Remaster/Particle Ubershader",
+                "shaderAssetGUID": "1a29b4d27eb8b04479ef89c00dea533d",
+                "shaderAssetLocalIdentifierInFile": 0,
+                "keywordNames": "_CFXR_ADDITIVE _CFXR_DISSOLVE _CFXR_OVERLAYTEX_1X",
+                "subShaderIndex": 0,
+                "passIndex": 0,
+                "graphicsStateInfoSet": []
+            }
+        },
+        {
+            "first": {
+                "serializedVersion": "2",
+                "Hash": "4642e60d5436731819767da09b07120d"
+            },
+            "second": {
+                "shaderName": "Hidden/Universal Render Pipeline/UberPost",
+                "shaderAssetGUID": "e7857e9d0c934dc4f83f270f8447b006",
+                "shaderAssetLocalIdentifierInFile": 4800000,
+                "keywordNames": "_BLOOM_LQ _DITHERING _USE_FAST_SRGB_LINEAR_CONVERSION",
+                "subShaderIndex": 0,
+                "passIndex": 0,
+                "graphicsStateInfoSet": []
+            }
+        },
+        {
+            "first": {
+                "serializedVersion": "2",
+                "Hash": "b58e6aff2fe0bb82f046de0759e2ceae"
+            },
+            "second": {
+                "shaderName": "Mobile/Particles/Additive",
+                "shaderAssetGUID": "1e9364b4d1dad1d4aa05e0ddc0bf9fd2",
+                "shaderAssetLocalIdentifierInFile": 4800000,
+                "keywordNames": "",
+                "subShaderIndex": 0,
+                "passIndex": 0,
+                "graphicsStateInfoSet": []
+            }
+        },
+        {
+            "first": {
+                "serializedVersion": "2",
+                "Hash": "c59ed7119894b9f932141beb4a48924c"
+            },
+            "second": {
+                "shaderName": "TextMeshPro/Mobile/Distance Field",
+                "shaderAssetGUID": "fe393ace9b354375a9cb14cdbbc28be4",
+                "shaderAssetLocalIdentifierInFile": 4800000,
+                "keywordNames": "UNDERLAY_ON",
+                "subShaderIndex": 0,
+                "passIndex": 0,
+                "graphicsStateInfoSet": []
+            }
+        },
+        {
+            "first": {
+                "serializedVersion": "2",
+                "Hash": "cd3ec7b62309a94f4029c0c8dd67eec7"
+            },
+            "second": {
+                "shaderName": "Hidden/Universal Render Pipeline/Bloom",
+                "shaderAssetGUID": "5f1864addb451f54bae8c86d230f736e",
+                "shaderAssetLocalIdentifierInFile": 4800000,
+                "keywordNames": "",
+                "subShaderIndex": 0,
+                "passIndex": 0,
+                "graphicsStateInfoSet": []
+            }
+        },
+        {
+            "first": {
+                "serializedVersion": "2",
+                "Hash": "e30e6efce8cbcf52dc9a48386410ea33"
+            },
+            "second": {
+                "shaderName": "Hidden/Universal Render Pipeline/Bloom",
+                "shaderAssetGUID": "5f1864addb451f54bae8c86d230f736e",
+                "shaderAssetLocalIdentifierInFile": 4800000,
+                "keywordNames": "",
+                "subShaderIndex": 0,
+                "passIndex": 2,
+                "graphicsStateInfoSet": []
+            }
+        },
+        {
+            "first": {
+                "serializedVersion": "2",
+                "Hash": "48679998db3b9692a2bd40f535553a5f"
+            },
+            "second": {
+                "shaderName": "Hidden/Universal Render Pipeline/Bloom",
+                "shaderAssetGUID": "5f1864addb451f54bae8c86d230f736e",
+                "shaderAssetLocalIdentifierInFile": 4800000,
+                "keywordNames": "",
+                "subShaderIndex": 0,
+                "passIndex": 3,
+                "graphicsStateInfoSet": []
+            }
+        },
+        {
+            "first": {
+                "serializedVersion": "2",
+                "Hash": "4ce3c7ea0e65cf6f3359f425514f10b4"
+            },
+            "second": {
+                "shaderName": "Hidden/InternalErrorShader",
+                "shaderAssetGUID": "7490cb225146abf4ebe7abfc57d957e2",
+                "shaderAssetLocalIdentifierInFile": 4800000,
+                "keywordNames": "",
+                "subShaderIndex": 0,
+                "passIndex": 0,
+                "graphicsStateInfoSet": []
+            }
+        },
+        {
+            "first": {
+                "serializedVersion": "2",
+                "Hash": "84b3e4085eb9d19ae40280a84c0cf319"
+            },
+            "second": {
+                "shaderName": "Legacy Shaders/Particles/Additive",
+                "shaderAssetGUID": "c3cb607c8d119e4b300074088c7b2b39",
+                "shaderAssetLocalIdentifierInFile": 4800000,
+                "keywordNames": "",
+                "subShaderIndex": 0,
+                "passIndex": 0,
+                "graphicsStateInfoSet": []
+            }
+        },
+        {
+            "first": {
+                "serializedVersion": "2",
+                "Hash": "920b9237e51a3c50f1e7e8d3b148b202"
+            },
+            "second": {
+                "shaderName": "UI/Default",
+                "shaderAssetGUID": "203dea5f7870f4649b7b371a655d12b9",
+                "shaderAssetLocalIdentifierInFile": 4800000,
+                "keywordNames": "",
+                "subShaderIndex": 0,
+                "passIndex": 0,
+                "graphicsStateInfoSet": []
+            }
+        },
+        {
+            "first": {
+                "serializedVersion": "2",
+                "Hash": "b11b7cbd677a5fa5f418d7654439ac74"
+            },
+            "second": {
+                "shaderName": "Universal Render Pipeline/2D/Sprite-Lit-Default",
+                "shaderAssetGUID": "99d21855bafc2724b9c6eb9214b173ce",
+                "shaderAssetLocalIdentifierInFile": 4800000,
+                "keywordNames": "INSTANCING_ON",
+                "subShaderIndex": 0,
+                "passIndex": 1,
+                "graphicsStateInfoSet": []
+            }
+        },
+        {
+            "first": {
+                "serializedVersion": "2",
+                "Hash": "bff7610f56d98dd735cac55b5a81c02a"
+            },
+            "second": {
+                "shaderName": "Cartoon FX/Remaster/Particle Procedural Ring",
+                "shaderAssetGUID": "1581eccce46ba384596a1dce7936ab19",
+                "shaderAssetLocalIdentifierInFile": 0,
+                "keywordNames": "",
+                "subShaderIndex": 0,
+                "passIndex": 0,
+                "graphicsStateInfoSet": []
+            }
+        },
+        {
+            "first": {
+                "serializedVersion": "2",
+                "Hash": "ef0b1a35aca60b8a4fc1bd33acc74c04"
+            },
+            "second": {
+                "shaderName": "Mobile/Particles/Alpha Blended",
+                "shaderAssetGUID": "12e12fbb415f694418b3c433de888a89",
+                "shaderAssetLocalIdentifierInFile": 4800000,
+                "keywordNames": "",
+                "subShaderIndex": 0,
+                "passIndex": 0,
+                "graphicsStateInfoSet": []
+            }
+        }
+    ],
+    "m_VertexLayoutInfoMap": [],
+    "m_RenderPassInfoMap": [],
+    "m_RenderStateMap": []
+}

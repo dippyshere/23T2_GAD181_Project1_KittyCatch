@@ -163,9 +163,7 @@ MonoBehaviour:
     atlasWidth: 1024
     atlasHeight: 512
     characterSetSelectionMode: 7
-    characterSequence: 0123456789Select GameModeCLASSICSCORECHASESeconds per run
-      Unlimited Time Grab the good items Avoid the Bad items Game Over Return to
-      Menu Retry Items GO!.f
+    characterSequence: 0123456789Select GameModeCLASSICSCORECHASESeconds per run Unlimited Time Grab the good items Avoid the Bad items Game Over Return to Menu Retry Items GO!.fCompiling Shaders...
     referencedFontAssetGUID: 8746a9b16fc0928429294b2a094c1b21
     referencedTextAssetGUID: 
     fontStyle: 0
